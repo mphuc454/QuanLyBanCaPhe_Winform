@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net10.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+        <DebugType>none</DebugType>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <SelfContained>true</SelfContained>
+        <PublishSingleFile>true</PublishSingleFile>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <Compile Update="View\frmTableDetail.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmLogin.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmLichSuHoaDon.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\Form1.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmThongKeDoanhThu.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmThongKeMonBanChay.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmQuanLyNhanVien.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmQuanLyCaLam.cs">
+      <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\popupChuyenBan.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\popupGopBan.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmPhanCongCaLam.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmThanhToan.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmLichSuChuyenBan.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmQuanLyMonAn.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmQuanLyKhuVucVaBan.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\frmThemMon.cs">
+      <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="View\popupQuenMK.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
+      <PackageReference Include="Microsoft.Data.Sqlite" Version="11.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Database\QuanLyCaPhe.db" />
+        <EmbeddedResource Include="Database\QuanLyCaPhe.db" LogicalName="QuanLyCaPhe.db" />
+        <EmbeddedResource Include="Resources\vietqr.jpg" LogicalName="vietqr.jpg" />
+    </ItemGroup>
+
+</Project>
