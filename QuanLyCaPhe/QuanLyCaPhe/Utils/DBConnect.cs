@@ -4,32 +4,12 @@ namespace QuanLyCaPhe.Utils;
 
 public class DBConnect
 {
-    private static readonly string DbPath = ChuanBiDatabase();
-    private static readonly string ConnectionString = $"Data Source={DbPath};";
-
+    private static readonly string DbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Database", "QuanLyCaPhe.db");
+    private static readonly string ConnectionString = $"Data Source={DbPath};Foreign Keys=True;";
+    
     static DBConnect()
     {
         KiemTraVaCapNhatBang();
-    }
-
-    private static string ChuanBiDatabase()
-    {
-        string thuMuc = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            "QuanLyCaPhe");
-        Directory.CreateDirectory(thuMuc);
-
-        string duongDan = Path.Combine(thuMuc, "QuanLyCaPhe.db");
-        if (!File.Exists(duongDan))
-        {
-            using var stream = typeof(DBConnect).Assembly.GetManifestResourceStream("QuanLyCaPhe.db");
-            if (stream != null)
-            {
-                using var file = File.Create(duongDan);
-                stream.CopyTo(file);
-            }
-        }
-        return duongDan;
     }
 
     private static void KiemTraVaCapNhatBang()
@@ -59,9 +39,8 @@ public class DBConnect
                 alterCmd.ExecuteNonQuery();
             }
         }
-        catch (Exception ex)
+        catch
         {
-            MessageBox.Show("Đường dẫn DB: " + DbPath + "\n\n" + ex, "Lỗi khởi tạo database");
         }
     }
 
